@@ -7,31 +7,23 @@ class CollectionController extends Controller
 {
     public function index()
     {
-        $data = [
+        $data = collect([
             [
-                'name' => 'ahmed',
-                'score' => 30,
+                'name' => 'Ahmed',
+                'age' => 23,
                 'exam' => [
-                    'math' => '10',
-                    'english' => '20'
+                    'result' => 10
                 ]
             ],
             [
-                'name' => 'ali',
-                'score' => 20,
+                'name' => 'Ali',
+                'age' => 21,
                 'exam' => [
-                    'math' => '12',
-                    'english' => '25'
+                    'result' => 20
                 ]
-            ],
-        ];
-        $collection = collect($data);
+            ]
+        ]);
 
-        return $collection->max('exam.math');
-
-//        $exam = array_column($data, 'exam');
-//        $math = array_column($exam, 'math');
-//
-//        return max($math);
+        return $data->avg('exam.result');
     }
 }
