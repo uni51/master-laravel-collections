@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('collections', [CollectionController::class, 'index']);
+Route::get('collections/average', [CollectionController::class, 'average']);
+Route::get('collections/contains', [CollectionController::class, 'contains']);
