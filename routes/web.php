@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('collections/average', [CollectionController::class, 'average']);
 Route::get('collections/contains', [CollectionController::class, 'contains']);
+Route::get('collections/sum', [CollectionController::class, 'sum']);
+Route::get('collections/count', [CollectionController::class, 'count']);
+Route::get('collections/count-by', [CollectionController::class, 'countBy']);
