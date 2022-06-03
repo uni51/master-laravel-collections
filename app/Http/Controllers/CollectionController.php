@@ -6,8 +6,77 @@ namespace App\Http\Controllers;
 class CollectionController extends Controller
 {
     /**
-     * https://laravel.com/docs/9.x/collections#method-count
-     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function reject()
+    {
+        $data = collect([
+            [
+                'score' => 10,
+                'ids' => [1, 2, 3],
+            ],
+            [
+                'score' => 12,
+                'ids' => [1, 2, 3, 4],
+            ],
+            [
+                'score' => 50,
+                'ids' => [1, 2, 3, 4, 5, 6],
+            ],
+        ]);
+
+        /**
+         *
+         [
+            {
+                "score": 10,
+                "ids": [1, 2, 3]
+             }
+         ]
+         */
+        return $data->reject(function($item){
+            return count($item['ids']) > 3;
+        })->values();
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function filter()
+    {
+        $data = collect([
+            [
+                'score' => 10,
+                'ids' => [1, 2, 3],
+            ],
+            [
+                'score' => 12,
+                'ids' => [1, 2, 3, 4],
+            ],
+            [
+                'score' => 50,
+                'ids' => [1, 2, 3, 4, 5, 6],
+            ],
+        ]);
+
+        /**
+         * [
+            {
+                score: 12,
+                ids: [1, 2, 3, 4]
+            },
+            {
+                score: 50,
+                ids: [1, 2, 3, 4, 5, 6 ]
+            }
+          ]
+         */
+        return $data->filter(function($item){
+            return count($item['ids']) > 3;
+        })->values();
+    }
+
+    /**
      * @return \Illuminate\Support\Collection
      */
     public function countBy()
@@ -19,16 +88,14 @@ class CollectionController extends Controller
             3,
         ]);
 
-        // 2より大きい3の値は２つあるので、2が返る
+        // 2より大きい3の値は２つあるので、[2]が返る
         return $data->countBy(function ($val) {
             return $val > 2;
-        })->unique();
+        })->unique(); // [2]
     }
 
 
     /**
-     * https://laravel.com/docs/9.x/collections#method-count
-     *
      * @return mixed
      */
     public function count()
@@ -50,8 +117,6 @@ class CollectionController extends Controller
     }
 
     /**
-     * https://laravel.com/docs/9.x/collections#method-sum
-     *
      * @return mixed
      */
     public function sum()
@@ -77,8 +142,6 @@ class CollectionController extends Controller
     }
 
     /**
-     * https://laravel.com/docs/9.x/collections#method-contains
-     *
      * @return bool
      */
     public function contains()
@@ -100,8 +163,6 @@ class CollectionController extends Controller
     }
 
     /**
-     * https://laravel.com/docs/9.x/collections#method-avg
-     *
      * @return float|int|mixed
      */
     public function average()
