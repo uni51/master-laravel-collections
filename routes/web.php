@@ -28,3 +28,5 @@ Route::get('collections/reject', [CollectionController::class, 'reject']);
 Route::get('collections/skip', [CollectionController::class, 'skip']);
 Route::get('collections/skip-until', [CollectionController::class, 'skipUntil']);
 Route::get('collections/skip-while', [CollectionController::class, 'skipWhile']);
+Route::get('collections/first', [CollectionController::class, 'first']);
+Route::get('collections/last', [CollectionController::class, 'last']);

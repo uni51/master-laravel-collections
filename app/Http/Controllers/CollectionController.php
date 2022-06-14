@@ -5,6 +5,24 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function last()
+    {
+        return collect([1, 2, 3, 4])->last(function ($value, $key) {
+            return $value < 3;
+        });
+
+        // 2
+    }
+
+    public function first()
+    {
+        return collect([1, 2, 3, 4])->first(function ($value, $key) {
+            return $value > 2;
+        });
+
+        // 3
+    }
+
     public function skipWhile()
     {
         $collection = collect([1, 2, 3, 4]);
