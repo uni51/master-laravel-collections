@@ -5,6 +5,66 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function skipWhile()
+    {
+        $collection = collect([1, 2, 3, 4]);
+
+        $subset = $collection->skipWhile(function ($item) {
+            return $item <= 3;
+        });
+
+        return $subset->values();
+
+        // [4]
+    }
+
+    public function skipUntil()
+    {
+        $data = collect([
+            1,
+            2,
+            3,
+            4,
+            5, // skip until stop working true
+            3
+        ]);
+
+        return $data->skipUntil(function ($item) {
+           return $item > 4;
+        });
+        /**
+         *
+         {
+            4: 5,
+            5: 3
+         }
+         */
+    }
+
+    public function skip()
+    {
+        $data = collect([
+            1,
+            2,
+            3,
+            4,
+            5,
+            3
+        ]);
+
+        return $data->skip(2)->values();
+        /**
+         *
+        [
+         3,
+         4,
+         5,
+         3
+        ]
+         */
+    }
+
+
     /**
      * @return \Illuminate\Support\Collection
      */

@@ -25,3 +25,6 @@ Route::get('collections/count', [CollectionController::class, 'count']);
 Route::get('collections/count-by', [CollectionController::class, 'countBy']);
 Route::get('collections/filter', [CollectionController::class, 'filter']);
 Route::get('collections/reject', [CollectionController::class, 'reject']);
+Route::get('collections/skip', [CollectionController::class, 'skip']);
+Route::get('collections/skip-until', [CollectionController::class, 'skipUntil']);
+Route::get('collections/skip-while', [CollectionController::class, 'skipWhile']);
