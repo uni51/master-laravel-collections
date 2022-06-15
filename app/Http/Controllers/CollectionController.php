@@ -5,6 +5,58 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function sortBy()
+    {
+        $collection = collect([
+            ['name' => 'Desk', 'colors' => ['Black', 'Mahogany']],
+            ['name' => 'Chair', 'colors' => ['Black']],
+            ['name' => 'Bookcase', 'colors' => ['Red', 'Beige', 'Brown']],
+        ]);
+
+        $sorted = $collection->sortBy(function ($product, $key) {
+            return count($product['colors']);
+        });
+
+        return $sorted->values()->all();
+
+        /*
+            [
+                {
+                    name: "Chair",
+                    colors: [
+                        "Black"
+                    ]
+                },
+                {
+                    name: "Desk",
+                    colors: [
+                        "Black",
+                        "Mahogany"
+                    ]
+                },
+                {
+                    name: "Bookcase",
+                    colors: [
+                        "Red",
+                        "Beige",
+                        "Brown"
+                    ]
+                }
+            ]
+        */
+   }
+
+    public function sort()
+    {
+        $collection = collect([5, 3, 1, 2, 4]);
+
+        $sorted = $collection->sort();
+
+        return $sorted->values()->all();
+
+        // [1, 2, 3, 4, 5]
+    }
+
     public function last()
     {
         return collect([1, 2, 3, 4])->last(function ($value, $key) {

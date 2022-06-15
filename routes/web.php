@@ -30,3 +30,5 @@ Route::get('collections/skip-until', [CollectionController::class, 'skipUntil'])
 Route::get('collections/skip-while', [CollectionController::class, 'skipWhile']);
 Route::get('collections/first', [CollectionController::class, 'first']);
 Route::get('collections/last', [CollectionController::class, 'last']);
+Route::get('collections/sort', [CollectionController::class, 'sort']);
+Route::get('collections/sort-by', [CollectionController::class, 'sortBy']);
