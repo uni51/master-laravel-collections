@@ -5,6 +5,28 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function push()
+    {
+        $collection = collect([1, 2, 3, 4]);
+
+        $collection->push(5);
+
+        return $collection->all();
+
+        // [1, 2, 3, 4, 5]
+    }
+
+    public function put()
+    {
+        $collection = collect(['product_id' => 1, 'name' => 'Desk']);
+
+        $collection->put('price', 100);
+
+        return $collection->all();
+
+        // ['product_id' => 1, 'name' => 'Desk', 'price' => 100]
+    }
+
     public function max()
     {
         return collect([['foo' => 10], ['foo' => 20]])->max('foo');
