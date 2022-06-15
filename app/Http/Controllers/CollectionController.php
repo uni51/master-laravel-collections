@@ -5,6 +5,21 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function max()
+    {
+        return collect([['foo' => 10], ['foo' => 20]])->max('foo');
+
+        // 20
+    }
+
+    public function min()
+    {
+        return collect([['foo' => 10], ['foo' => 20]])->min('foo');
+
+        // 10
+    }
+
+
     public function sortBy()
     {
         $collection = collect([

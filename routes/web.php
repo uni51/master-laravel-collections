@@ -32,3 +32,5 @@ Route::get('collections/first', [CollectionController::class, 'first']);
 Route::get('collections/last', [CollectionController::class, 'last']);
 Route::get('collections/sort', [CollectionController::class, 'sort']);
 Route::get('collections/sort-by', [CollectionController::class, 'sortBy']);
+Route::get('collections/min', [CollectionController::class, 'min']);
+Route::get('collections/max', [CollectionController::class, 'max']);
