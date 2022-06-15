@@ -5,6 +5,17 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function unique()
+    {
+        $collection = collect([1, 1, 2, 2, 3, 4, 2]);
+
+        $unique = $collection->unique();
+
+        return $unique->values()->all();
+
+        // [1, 2, 3, 4]
+    }
+
     public function keyBy()
     {
         $collection = collect([

@@ -38,3 +38,4 @@ Route::get('collections/put', [CollectionController::class, 'put']);
 Route::get('collections/push', [CollectionController::class, 'push']);
 Route::get('collections/group-by', [CollectionController::class, 'groupBy']);
 Route::get('collections/key-by', [CollectionController::class, 'keyBy']);
+Route::get('collections/unique', [CollectionController::class, 'unique']);
