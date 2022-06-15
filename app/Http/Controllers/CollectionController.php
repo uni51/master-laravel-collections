@@ -5,6 +5,65 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function keyBy()
+    {
+        $collection = collect([
+            ['product_id' => 'prod-100', 'name' => 'Desk'],
+            ['product_id' => 'prod-200', 'name' => 'Chair'],
+        ]);
+
+        $keyed = $collection->keyBy('product_id');
+
+        return $keyed->all();
+
+        /*
+            {
+                prod-100: {
+                    product_id: "prod-100",
+                    name: "Desk"
+                },
+                prod-200: {
+                    product_id: "prod-200",
+                    name: "Chair"
+                }
+            }
+        */
+    }
+
+    public function groupBy()
+    {
+        $collection = collect([
+            ['account_id' => 'account-x10', 'product' => 'Chair'],
+            ['account_id' => 'account-x10', 'product' => 'Bookcase'],
+            ['account_id' => 'account-x11', 'product' => 'Desk'],
+        ]);
+
+        $grouped = $collection->groupBy('account_id');
+
+        return $grouped->toArray();
+
+        /*
+        {
+            account-x10: [
+                {
+                    account_id: "account-x10",
+                    product: "Chair"
+                },
+                {
+                    account_id: "account-x10",
+                    product: "Bookcase"
+                }
+            ],
+            account-x11: [
+                {
+                    account_id: "account-x11",
+                    product: "Desk"
+                }
+            ]
+         }
+         */
+    }
+
     public function push()
     {
         $collection = collect([1, 2, 3, 4]);
