@@ -5,6 +5,32 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function where()
+    {
+        $collection = collect([
+            ['product' => 'Desk', 'price' => 200],
+            ['product' => 'Chair', 'price' => 100],
+            ['product' => 'Bookcase', 'price' => 150],
+            ['product' => 'Door', 'price' => 100],
+        ]);
+
+        $filtered = $collection->where('price', 100);
+
+        return $filtered->all();
+        /*
+            {
+                1: {
+                    product: "Chair",
+                    price: 100
+                },
+                3: {
+                    product: "Door",
+                    price: 100
+                }
+            }
+         */
+    }
+
     public function unique()
     {
         $collection = collect([1, 1, 2, 2, 3, 4, 2]);
