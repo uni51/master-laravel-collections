@@ -40,3 +40,5 @@ Route::get('collections/group-by', [CollectionController::class, 'groupBy']);
 Route::get('collections/key-by', [CollectionController::class, 'keyBy']);
 Route::get('collections/unique', [CollectionController::class, 'unique']);
 Route::get('collections/where', [CollectionController::class, 'where']);
+Route::get('collections/where-in', [CollectionController::class, 'whereIn']);
+Route::get('collections/where-not-in', [CollectionController::class, 'whereNotIn']);

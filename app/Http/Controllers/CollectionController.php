@@ -5,6 +5,49 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function whereNotIn()
+    {
+        $collection = collect([
+            ['product' => 'Desk', 'price' => 200],
+            ['product' => 'Chair', 'price' => 100],
+            ['product' => 'Bookcase', 'price' => 150],
+            ['product' => 'Door', 'price' => 100],
+        ]);
+
+        $filtered = $collection->whereNotIn('price', [150, 200]);
+
+        return $filtered->all();
+
+        /*
+            [
+                ['product' => 'Chair', 'price' => 100],
+                ['product' => 'Door', 'price' => 100],
+            ]
+        */
+    }
+
+    public function whereIn()
+    {
+        $collection = collect([
+            ['product' => 'Desk', 'price' => 200],
+            ['product' => 'Chair', 'price' => 100],
+            ['product' => 'Bookcase', 'price' => 150],
+            ['product' => 'Door', 'price' => 100],
+        ]);
+
+        $filtered = $collection->whereNotIn('price', [150, 200]);
+        /*
+            [
+                ['product' => 'Chair', 'price' => 100],
+                ['product' => 'Door', 'price' => 100],
+            ]
+        */
+
+        return $filtered->where('product', 'Chair')->pluck('price')->first();
+        // 100
+    }
+
+
     public function where()
     {
         $collection = collect([
