@@ -42,3 +42,4 @@ Route::get('collections/unique', [CollectionController::class, 'unique']);
 Route::get('collections/where', [CollectionController::class, 'where']);
 Route::get('collections/where-in', [CollectionController::class, 'whereIn']);
 Route::get('collections/where-not-in', [CollectionController::class, 'whereNotIn']);
+Route::get('collections/where-between', [CollectionController::class, 'whereBetween']);
