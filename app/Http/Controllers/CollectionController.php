@@ -5,6 +5,20 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function isNotEmpty()
+    {
+        return collect([])->isNotEmpty();
+
+        // 0（false）
+    }
+
+    public function isEmpty()
+    {
+        return collect([])->isEmpty();
+
+        // 1（true）
+    }
+
     /**
      * Note: 他のコレクションメソッドとは異なり、transformはコレクション自身を更新します。
      * 代わりに新しいコレクションを生成したい場合は、 mapメソッドを使用してください。

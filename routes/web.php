@@ -48,3 +48,5 @@ Route::get('collections/where-not-null', [CollectionController::class, 'whereNot
 Route::get('collections/first-where', [CollectionController::class, 'firstWhere']);
 Route::get('collections/map', [CollectionController::class, 'map']);
 Route::get('collections/transform', [CollectionController::class, 'transform']);
+Route::get('collections/is-empty', [CollectionController::class, 'isEmpty']);
+Route::get('collections/is-not-empty', [CollectionController::class, 'isNotEmpty']);
