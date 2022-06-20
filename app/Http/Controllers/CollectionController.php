@@ -5,6 +5,25 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    /**
+     * Note: 他のコレクションメソッドとは異なり、transformはコレクション自身を更新します。
+     * 代わりに新しいコレクションを生成したい場合は、 mapメソッドを使用してください。
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function transform()
+    {
+        $collection = collect([1, 2, 3, 4, 5]);
+
+        $collection->transform(function ($item, $key) {
+            return $item * 2;
+        });
+
+        return $collection->values();
+
+        // [2, 4, 6, 8, 10]
+    }
+
     public function map()
     {
         $collection = collect([1, 2, 3, 4, 5]);
