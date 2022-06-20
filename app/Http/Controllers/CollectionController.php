@@ -5,6 +5,25 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function firstWhere()
+    {
+        $collection = collect([
+            ['name' => 'Regena', 'age' => null],
+            ['name' => 'Linda', 'age' => 14],
+            ['name' => 'Diego', 'age' => 23],
+            ['name' => 'Linda', 'age' => 84],
+        ]);
+
+        return $collection->firstWhere('name', 'Linda');
+
+        /*
+            {
+                name: "Linda",
+                age: 14
+            }
+         */
+    }
+
     public function whereNotNull()
     {
         $collection = collect([

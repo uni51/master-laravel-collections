@@ -45,3 +45,4 @@ Route::get('collections/where-not-in', [CollectionController::class, 'whereNotIn
 Route::get('collections/where-between', [CollectionController::class, 'whereBetween']);
 Route::get('collections/where-null', [CollectionController::class, 'whereNull']);
 Route::get('collections/where-not-null', [CollectionController::class, 'whereNotNull']);
+Route::get('collections/first-where', [CollectionController::class, 'firstWhere']);
