@@ -50,3 +50,4 @@ Route::get('collections/map', [CollectionController::class, 'map']);
 Route::get('collections/transform', [CollectionController::class, 'transform']);
 Route::get('collections/is-empty', [CollectionController::class, 'isEmpty']);
 Route::get('collections/is-not-empty', [CollectionController::class, 'isNotEmpty']);
+Route::get('collections/flatten', [CollectionController::class, 'flatten']);

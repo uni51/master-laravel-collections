@@ -5,6 +5,22 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function flatten()
+    {
+        $collection = collect([
+            'name' => 'taylor',
+            'languages' => [
+                'php', 'javascript'
+            ]
+        ]);
+
+        $flattened = $collection->flatten();
+
+        return $flattened->all();
+
+        // ['taylor', 'php', 'javascript'];
+    }
+
     public function isNotEmpty()
     {
         return collect([])->isNotEmpty();
