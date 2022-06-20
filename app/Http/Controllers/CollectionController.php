@@ -5,6 +5,45 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function whereNotNull()
+    {
+        $collection = collect([
+            ['name' => 'Desk'],
+            ['name' => null],
+            ['name' => 'Bookcase'],
+        ]);
+
+        $filtered = $collection->whereNotNull('name');
+
+        return $filtered->values();
+
+        /*
+            [
+                ['name' => 'Desk'],
+                ['name' => 'Bookcase'],
+            ]
+        */
+    }
+
+    public function whereNull()
+    {
+        $collection = collect([
+            ['name' => 'Desk'],
+            ['name' => null],
+            ['name' => 'Bookcase'],
+        ]);
+
+        $filtered = $collection->whereNull('name');
+
+        return $filtered->values();
+
+        /*
+            [
+                ['name' => null],
+            ]
+        */
+    }
+
     public function whereBetween()
     {
         $collection = collect([

@@ -43,3 +43,5 @@ Route::get('collections/where', [CollectionController::class, 'where']);
 Route::get('collections/where-in', [CollectionController::class, 'whereIn']);
 Route::get('collections/where-not-in', [CollectionController::class, 'whereNotIn']);
 Route::get('collections/where-between', [CollectionController::class, 'whereBetween']);
+Route::get('collections/where-null', [CollectionController::class, 'whereNull']);
+Route::get('collections/where-not-null', [CollectionController::class, 'whereNotNull']);
