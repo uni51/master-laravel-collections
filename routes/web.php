@@ -46,3 +46,4 @@ Route::get('collections/where-between', [CollectionController::class, 'whereBetw
 Route::get('collections/where-null', [CollectionController::class, 'whereNull']);
 Route::get('collections/where-not-null', [CollectionController::class, 'whereNotNull']);
 Route::get('collections/first-where', [CollectionController::class, 'firstWhere']);
+Route::get('collections/map', [CollectionController::class, 'map']);

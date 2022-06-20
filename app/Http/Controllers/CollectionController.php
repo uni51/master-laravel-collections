@@ -5,6 +5,19 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function map()
+    {
+        $collection = collect([1, 2, 3, 4, 5]);
+
+        $multiplied = $collection->map(function ($item, $key) {
+            return $item * 2;
+        });
+
+        return $multiplied->values();
+
+        // [2, 4, 6, 8, 10]
+    }
+
     public function firstWhere()
     {
         $collection = collect([
