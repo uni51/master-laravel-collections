@@ -5,6 +5,25 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    /**
+     * AppServiceProviderでevenメソッドを
+     * カスタムファンクションとして定義している
+     *
+     * @return mixed
+     */
+    public function even()
+    {
+        $data = collect([
+            1,
+            2,
+            3
+        ]);
+
+        return $data->even()->values();
+
+        // [2]
+    }
+
     public function flatten()
     {
         $collection = collect([
