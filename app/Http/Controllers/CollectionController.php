@@ -5,6 +5,32 @@ namespace App\Http\Controllers;
 
 class CollectionController extends Controller
 {
+    public function notDivedBy()
+    {
+        $data = collect([
+            1,
+            2,
+            3
+        ]);
+
+        return $data->notDivedBy(3)->values();
+
+        // [1,2]
+    }
+
+    public function divedBy()
+    {
+        $data = collect([
+            1,
+            2,
+            3
+        ]);
+
+        return $data->divedBy(3)->values();
+
+        // [3]
+    }
+
     /**
      * AppServiceProviderでevenメソッドを
      * カスタムファンクションとして定義している
@@ -19,7 +45,7 @@ class CollectionController extends Controller
             3
         ]);
 
-        return $data->even()->values();
+        return $data->even();
 
         // [2]
     }

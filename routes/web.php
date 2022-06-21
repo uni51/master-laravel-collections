@@ -52,3 +52,5 @@ Route::get('collections/is-empty', [CollectionController::class, 'isEmpty']);
 Route::get('collections/is-not-empty', [CollectionController::class, 'isNotEmpty']);
 Route::get('collections/flatten', [CollectionController::class, 'flatten']);
 Route::get('collections/custom-function', [CollectionController::class, 'even']);
+Route::get('collections/custom-function-2', [CollectionController::class, 'divedBy']);
+Route::get('collections/custom-function-3', [CollectionController::class, 'notDivedBy']);
